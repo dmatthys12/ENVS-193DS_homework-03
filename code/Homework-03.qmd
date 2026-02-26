@@ -1,0 +1,15 @@
+---
+title: "Homework-03"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+```
+
+```{r}
+salinity <- read.csv("salinity-pickleweed.csv")
+```
