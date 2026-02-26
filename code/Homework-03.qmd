@@ -11,5 +11,9 @@ library(readxl)
 ```
 
 ```{r}
-salinity <- read.csv("salinity-pickleweed.csv")
+salinity <- read.csv("data/salinity-pickleweed.csv")
 ```
+
+## Problem 1
+
+**a. An appropriate test**
