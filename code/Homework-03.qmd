@@ -23,14 +23,6 @@ The appropriate tests to determine the strength of the relationship between sali
 
 **b. Create visualization**
 
-```{r}
-ggplot(data = salinity,
-       aes(x = salinity_mS_cm,
-           y = pickleweed)) + 
-  geom_point() + 
-  labs(x = "Salinity (mS/cm)",
-       y = "Pickleweed biomass (g)") 
-```
 
 ```{r}
 salinity_lm <- lm(
@@ -52,6 +44,25 @@ salinity_preds <- ggpredict(
 salinity_preds
 ```
 
+```{r}
+ggplot(data = salinity,
+       aes(x = salinity_mS_cm,
+           y = pickleweed)) + 
+  geom_point(fill = "tomato",
+             shape = 22) + 
+  geom_ribbon(data = salinity_preds,
+              aes(x = x,
+                  y = predicted,
+                  ymin = conf.low,
+                  ymax = conf.high,
+                  alpha = 0.1)) + 
+  geom_line(data = salinity_preds,
+            aes(x = x,
+                y = predicted),
+            color = "blue") +
+  labs(x = "Salinity (mS/cm)",
+       y = "Pickleweed biomass (g)") 
+```
 
 
 
