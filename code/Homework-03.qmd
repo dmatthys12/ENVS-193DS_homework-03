@@ -8,6 +8,7 @@ editor: visual
 library(tidyverse)
 library(janitor)
 library(readxl)
+library(ggeffects)
 ```
 
 ```{r}
@@ -40,6 +41,15 @@ salinity_lm <- lm(
 ```{r}
 par(mfrow = c(2,2))
 plot(salinity_lm)
+```
+
+```{r}
+salinity_preds <- ggpredict(
+  salinity_lm,
+  terms = "salinity_mS_cm"
+)
+
+salinity_preds
 ```
 
 
