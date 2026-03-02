@@ -19,21 +19,9 @@ salinity <- read.csv("data/salinity-pickleweed.csv")
 
 **a. An appropriate test**
 
-The appropriate tests to determine the strength of the relationship between salinity and pickleweed biomass are the Pearson's correlation and Spearman rank correlation tests, telling us the significance of the effects of the predictor variable of salinity (mS/cm) on response variable pickleweed biomass (g). Pearson's correlation is to be used if there is a linear relationship between the variables, variables are continuous, variables are normally distributed, and there are independent observations. Spearman rank correlation is to be used if there is a monotonic relationship between variables and there are independent observations. 
+The appropriate tests to determine the strength of the relationship between salinity and pickleweed biomass are the Pearson's correlation and Spearman rank correlation tests, telling us the significance of the effects of the predictor variable of salinity (mS/cm) on response variable pickleweed biomass (g). Pearson's correlation is to be used if there is a linear relationship between the variables, variables are continuous, variables are normally distributed, and there are independent observations. Spearman rank correlation is to be used if there is a monotonic relationship between variables and there are independent observations.
 
 **b. Create visualization**
-
-
-```{r}
-salinity_lm <- lm(
-                  pickleweed ~ salinity_mS_cm,
-                  data = salinity)
-```
-
-```{r}
-par(mfrow = c(2,2))
-plot(salinity_lm)
-```
 
 ```{r}
 salinity_preds <- ggpredict(
@@ -63,6 +51,34 @@ ggplot(data = salinity,
   labs(x = "Salinity (mS/cm)",
        y = "Pickleweed biomass (g)") 
 ```
+
+**c. Check your assumptions and run your test**
+
+Check assumptions
+
+```{r}
+salinity_lm <- lm(
+                  pickleweed ~ salinity_mS_cm,
+                  data = salinity)
+```
+
+```{r}
+par(mfrow = c(2,2))
+plot(salinity_lm)
+```
+
+Above, I created plots for residuals vs. fitted and scale-location to check the homoscedasticity of the observations, and because the red line is relatively straight it would suggest that the relationship between variables is linear. The Q-Q Residuals plot tells us whether there is normal distribution with the observations, and looking at this plot there is not significant deviation from the line and we can determine that there is normal distribution. 
+
+Run your test
+
+
+
+
+
+
+
+
+
 
 
 
