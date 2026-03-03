@@ -22,6 +22,7 @@ salinity <- read.csv("data/salinity-pickleweed.csv")
 The appropriate tests to determine the strength of the relationship between salinity and pickleweed biomass are the Pearson's correlation and Spearman rank correlation tests, telling us the significance of the effects of the predictor variable of salinity (mS/cm) on response variable pickleweed biomass (g). Pearson's correlation is to be used if there is a linear relationship between the variables, variables are continuous, variables are normally distributed, and there are independent observations. Spearman rank correlation is to be used if there is a monotonic relationship between variables and there are independent observations.
 
 **b. Create visualization**
+
 ```{r}
 salinity_lm <- lm(
                   pickleweed ~ salinity_mS_cm,
@@ -139,11 +140,27 @@ ggplot(data = personal_clean,
 
 **b. Captions**
 
-Figure 1: Scatter plot representing the water drank (L) dependent on the high daily temperature (F°). The predictor variable on the x-axis is the high daily temperature, with the response variable on the y-axis being the water drank. Each red dot represents an individual observation for a specific date. Looking at the spread of data, it does not look like there's a strong relationship between the two variables. 
+Figure 1: Scatter plot representing the water drank (L) dependent on the high daily temperature (F°). The predictor variable on the x-axis is the high daily temperature, with the response variable on the y-axis being the water drank. Each red dot represents an individual observation for a specific date. Looking at the spread of data, it does not look like there's a strong relationship between the two variables.
 
-Figure 2: Jitter plot representing water drank (L) dependent on whether I exercised that day or not (Yes/No). The predictor variable on the x-axis is exercise, and the response variable on the y-axis is water drank. Each red dot represents an individual observation for a day that I did not exercise, and each blue dot represents an individual observation for a day that I did exercise. Looking at the plot, it would seem more water is consumed on days that I exercised. 
+Figure 2: Jitter plot representing water drank (L) dependent on whether I exercised that day or not (Yes/No). The predictor variable on the x-axis is exercise, and the response variable on the y-axis is water drank. Each red dot represents an individual observation for a day that I did not exercise, and each blue dot represents an individual observation for a day that I did exercise. Looking at the plot, it would seem more water is consumed on days that I exercised.
 
+##Problem 3. Affective visualization
 
+**a. Describe in words what an affective visualization could look like for my personal data**
 
+An affective visualization for my data should be centered around the idea of water being consumed. I was thinking that I could represent water drank in a water bottle. I want to do the exercise/no exercise because I feel like there is more of a relationship to explore there and I can have some fun with the visual representations for the two categories. I want it to be colorful and use identifiable imagery.
 
+**b. Create a sketch of your idea**
 
+**c. Make a draft of your visualization**
+
+**d. Write an artist statement**
+I am showing the relationship between the predictor variable of whether I exercised that day or not, and the response variable of how much water I drank in L. I took influence from the paintings of Jill Pelto, along with the "Dear Data" project of Stefanie Posavec and Giorgia Lupi. The form of my work is through a pen and marker drawing. I created this work by beginning with a pencil sketch, then finalizing my pencil line work, and finally filling in with marker and outlining in black. 
+
+## Problem 4. Statistical critique
+
+**a. Revisit and summarize**
+
+The statistical test that is included in this paper is the ANOVA test. Multiple tests were performed, with each one using the predictor variables of control (controlled laboratory environment), temperature, CO2, and temperature x CO2. The response variables observed are hatching time (days), food consumption rate (grams food/shark/day), and the mean growth rates (slope of biomass) over time for laboratory sharks fed ad libidum and sharks raised in natural mesocosms? The ANOVA test addresses these questions by evaluating whether the means of the groups are different from each other. In regards to this study, the ANOVA test is being performed with the purpose of seeing the difference in how select predictor variables affect shark behaviors. The ANOVA uses the F-ratio, which is the ratio of variances between groups to the variance within groups, with a larger F stat suggesting more variation. The F-ratio is evaluated with a p-value, using a significance level of 0.05, meaning that a p-value less than 0.05 is enough to determine that there is a significant difference between the means of groups. It does not tell us which groups are different, but it tells us that there is a difference.
+
+**b. Visual clarity**
