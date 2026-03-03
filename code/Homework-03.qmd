@@ -112,16 +112,31 @@ personal_clean <- personal |>
   clean_names()
 ```
 
-
 ```{r}
 ggplot(data = personal_clean,
        aes(x = high_daily_temperature_f,
            y = water_drank_l)) + 
   geom_jitter(height = 0,
               width = 0.3,
-              color = "tomato")
+              color = "tomato") + 
+  labs(x = "High Daily Temperature (Farenheit)",
+       y = "Water Drank (liters)",
+       title = "Water Drank Based on High Daily Temperature") +
+  theme_minimal()
 ```
 
+```{r}
+ggplot(data = personal_clean,
+       aes(x = exercised,
+           y = water_drank_l,
+           color = exercised)) + 
+  geom_jitter(height = 0,
+              width = 0.3) + 
+  labs(x = "Exercised (Yes/No)",
+       y = "Water Drank (liters)",
+       title = "Water Drank Based on Exercise") + 
+  theme_minimal()
+```
 
 
 
