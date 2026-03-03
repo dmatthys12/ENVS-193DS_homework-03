@@ -22,6 +22,11 @@ salinity <- read.csv("data/salinity-pickleweed.csv")
 The appropriate tests to determine the strength of the relationship between salinity and pickleweed biomass are the Pearson's correlation and Spearman rank correlation tests, telling us the significance of the effects of the predictor variable of salinity (mS/cm) on response variable pickleweed biomass (g). Pearson's correlation is to be used if there is a linear relationship between the variables, variables are continuous, variables are normally distributed, and there are independent observations. Spearman rank correlation is to be used if there is a monotonic relationship between variables and there are independent observations.
 
 **b. Create visualization**
+```{r}
+salinity_lm <- lm(
+                  pickleweed ~ salinity_mS_cm,
+                  data = salinity)
+```
 
 ```{r}
 salinity_preds <- ggpredict(
@@ -55,12 +60,6 @@ ggplot(data = salinity,
 **c. Check your assumptions and run your test**
 
 Check assumptions
-
-```{r}
-salinity_lm <- lm(
-                  pickleweed ~ salinity_mS_cm,
-                  data = salinity)
-```
 
 ```{r}
 par(mfrow = c(2,2))
@@ -138,6 +137,11 @@ ggplot(data = personal_clean,
   theme_minimal()
 ```
 
+**b. Captions**
+
+Figure 1: Scatter plot representing the water drank (L) dependent on the high daily temperature (F°). The predictor variable on the x-axis is the high daily temperature, with the response variable on the y-axis being the water drank. Each red dot represents an individual observation for a specific date. Looking at the spread of data, it does not look like there's a strong relationship between the two variables. 
+
+Figure 2: Jitter plot representing water drank (L) dependent on whether I exercised that day or not (Yes/No). The predictor variable on the x-axis is exercise, and the response variable on the y-axis is water drank. Each red dot represents an individual observation for a day that I did not exercise, and each blue dot represents an individual observation for a day that I did exercise. Looking at the plot, it would seem more water is consumed on days that I exercised. 
 
 
 
