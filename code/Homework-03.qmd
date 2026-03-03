@@ -85,9 +85,10 @@ To evaluate the strength of the relationship between pickleweed biomass and soil
 
 **e. Test implications**
 
-There is a moderate relationship between salinity and pickleweed biomass, which means that there is a noticeable influence of salinity (mS/cm) on pickleweed biomass (g). Based on the results of our test, increasing salinity will lead to more success in pickleweed planting at our restoration site. However, I would note that we do not have any observations exceeding a salinity value of 10.0 mS/cm, and I don't know how surpassing this threshold would affect growth. 
+There is a moderate relationship between salinity and pickleweed biomass, which means that there is a noticeable influence of salinity (mS/cm) on pickleweed biomass (g). Based on the results of our test, increasing salinity will lead to more success in pickleweed planting at our restoration site. However, I would note that we do not have any observations exceeding a salinity value of 10.0 mS/cm, and I don't know how surpassing this threshold would affect growth.
 
 **f. Double check your own work**
+
 ```{r}
 cor.test(salinity$salinity_mS_cm,
          salinity$pickleweed,
@@ -97,6 +98,30 @@ cor.test(salinity$salinity_mS_cm,
 This test would lead me to make the same decision about the null hypothesis, despite the assumptions for both test being different and this technically being the incorrect one. They give a very similar value for the strength of the relationship, which would lead me to the same conclusion in both cases.
 
 We found a moderate relationship between salinity (mS/cm) and pickleweed biomass (g) (Spearman $\rho$ = 0.59, S = 824, p = 0.0034, $\alpha$ = 0.05).
+
+## Problem 2. Personal data
+
+**a. Updating your visualizations**
+
+```{r}
+personal <- read_xlsx("data/Data_Project_Water_Idea_HW3.xlsx")
+```
+
+```{r}
+personal_clean <- personal |> 
+  clean_names()
+```
+
+
+```{r}
+ggplot(data = personal_clean,
+       aes(x = high_daily_temperature_f,
+           y = water_drank_l)) + 
+  geom_jitter(height = 0,
+              width = 0.3,
+              color = "tomato")
+```
+
 
 
 
