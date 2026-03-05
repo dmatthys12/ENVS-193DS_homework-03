@@ -156,6 +156,8 @@ An affective visualization for my data should be centered around the idea of wat
 
 **c. Make a draft of your visualization**
 
+![](images/Personal_data_draft.jpeg)
+
 **d. Write an artist statement**
 
 I am showing the relationship between the predictor variable of whether I exercised that day or not, and the response variable of how much water I drank in L. I took influence from the paintings of Jill Pelto, along with the "Dear Data" project of Stefanie Posavec and Giorgia Lupi. The form of my work is through a pen and marker drawing. I created this work by beginning with a pencil sketch, then finalizing my pencil line work, and finally filling in with marker and outlining in black.
