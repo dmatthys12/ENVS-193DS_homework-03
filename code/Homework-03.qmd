@@ -152,9 +152,11 @@ An affective visualization for my data should be centered around the idea of wat
 
 **b. Create a sketch of your idea**
 
+![](images/Personal_data_sketch.jpeg)
+
 **c. Make a draft of your visualization**
 
-**d. Write an artist statement** 
+**d. Write an artist statement**
 
 I am showing the relationship between the predictor variable of whether I exercised that day or not, and the response variable of how much water I drank in L. I took influence from the paintings of Jill Pelto, along with the "Dear Data" project of Stefanie Posavec and Giorgia Lupi. The form of my work is through a pen and marker drawing. I created this work by beginning with a pencil sketch, then finalizing my pencil line work, and finally filling in with marker and outlining in black.
 
@@ -164,7 +166,7 @@ I am showing the relationship between the predictor variable of whether I exerci
 
 The statistical test that is included in this paper is the ANOVA test. Multiple tests were performed, with each one using the predictor variables of control (controlled laboratory environment), temperature, CO2, and temperature x CO2. The response variables observed are hatching time (days), food consumption rate (grams food/shark/day), and the mean growth rates (slope of biomass) over time for laboratory sharks fed ad libidum and sharks raised in natural mesocosms? The ANOVA test addresses these questions by evaluating whether the means of the groups are different from each other. In regards to this study, the ANOVA test is being performed with the purpose of seeing the difference in how select predictor variables affect shark behaviors. The ANOVA uses the F-ratio, which is the ratio of variances between groups to the variance within groups, with a larger F stat suggesting more variation. The F-ratio is evaluated with a p-value, using a significance level of 0.05, meaning that a p-value less than 0.05 is enough to determine that there is a significant difference between the means of groups. It does not tell us which groups are different, but it tells us that there is a difference.
 
-**b. Visual clarity** 
+**b. Visual clarity**
 
 The authors do a good job at clearly representing their statistics in their figures. The x-axis is labelled with the predictor variables, and the y-axis is labelled with the response variable that's being measured. The summary statistics are shown through the bins, as the top of the bin ends at the mean, while the error bars represent SE. There is no visual representation for underlying data.
 
@@ -172,8 +174,6 @@ The authors do a good job at clearly representing their statistics in their figu
 
 I think that the authors did a good job at handling visual clutter. It feels like it is only presenting the necessary information to understand the results of the ANOVA test. The ink:data ratio is good, as I understand everything without being overwhelmed.
 
-
 **d. Recommendations**
 
-One thing that I would like to see is a title that tells us what is going on in the figure, as it would help contextualize the data. Another thing that would be helpful for the reader is units on the x-axis. Something that I think might be helpful is changing colors for the bins to where the ones that do not vary from each other are the same color, so then we can see which groups are different in regards to the results of the ANOVA. 
-
+One thing that I would like to see is a title that tells us what is going on in the figure, as it would help contextualize the data. Another thing that would be helpful for the reader is units on the x-axis. Something that I think might be helpful is changing colors for the bins to where the ones that do not vary from each other are the same color, so then we can see which groups are different in regards to the results of the ANOVA.
