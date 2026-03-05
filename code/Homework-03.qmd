@@ -12,8 +12,11 @@ library(ggeffects)
 ```
 
 ```{r}
-salinity <- read.csv("data/salinity-pickleweed.csv")
+library(here)
+
+salinity <- read.csv(here("data", "salinity-pickleweed.csv"))
 ```
+
 
 ## Problem 1
 
@@ -104,7 +107,9 @@ We found a moderate relationship between salinity (mS/cm) and pickleweed biomass
 **a. Updating your visualizations**
 
 ```{r}
-personal <- read_xlsx("data/Data_Project_Water_Idea_HW3.xlsx")
+library(here)
+
+personal <- read_xlsx(here("data/Data_Project_Water_Idea_HW3.xlsx"))
 ```
 
 ```{r}
