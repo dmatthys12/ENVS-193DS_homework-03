@@ -5,16 +5,16 @@ author: Daniel Matthys
 ---
 
 ```{r}
-library(tidyverse)
+library(tidyverse) 
 library(janitor)
 library(readxl)
-library(ggeffects)
+library(ggeffects) #loading in the necessary packages for the homework assignment
 ```
 
 ```{r}
-library(here)
+library(here) #building path from the root of my project folder
 
-salinity <- read.csv(here("data", "salinity-pickleweed.csv"))
+salinity <- read.csv(here("data", "salinity-pickleweed.csv")) #reading in my salinity and pickleweed data
 ```
 
 
@@ -27,38 +27,40 @@ The appropriate tests to determine the strength of the relationship between sali
 **b. Create visualization**
 
 ```{r}
-salinity_lm <- lm(
-                  pickleweed ~ salinity_mS_cm,
-                  data = salinity)
+salinity_lm <- lm( #creating an object called salinity_lm based on my linear model fit
+                  pickleweed ~ salinity_mS_cm, #using pickleweed biomass as the response and salinity as the predictor variables
+                  data = salinity) #using the salinity object as my data
 ```
 
 ```{r}
-salinity_preds <- ggpredict(
-  salinity_lm,
-  terms = "salinity_mS_cm"
+salinity_preds <- ggpredict( #creating an object called salinity_preds based on the ggpredict function, which visualizes predictions from the multiple regression models
+  salinity_lm, #using the salinity_lm object as my data
+  terms = "salinity_mS_cm" #going off of the salinity values
 )
 
-salinity_preds
+salinity_preds #displaying results
 ```
 
 ```{r}
-ggplot(data = salinity,
+ggplot(data = salinity, #creating a ggplot based on the salinity data
        aes(x = salinity_mS_cm,
-           y = pickleweed)) + 
+           y = pickleweed)) + #x-axis shows the salinity values, y-axis shows the pickleweed biomass
   geom_point(fill = "tomato",
-             shape = 22) + 
-  geom_ribbon(data = salinity_preds,
-              aes(x = x,
-                  y = predicted,
-                  ymin = conf.low,
-                  ymax = conf.high,
-                  alpha = 0.1)) + 
-  geom_line(data = salinity_preds,
-            aes(x = x,
-                y = predicted),
-            color = "blue") +
-  labs(x = "Salinity (mS/cm)",
-       y = "Pickleweed biomass (g)") 
+             shape = 22) + #adding points to the plot to represent observations, making them red and squares
+  geom_ribbon(data = salinity_preds, #adding a ribbon to visually represent the predictions of my multiple regression models
+              aes(x = x, #x-axis is the x values
+                  y = predicted, #y-axis is the predicted values
+                  ymin = conf.low, #y-min is the low-end of the confidence interval
+                  ymax = conf.high, #y-max is the high-end of the confidence interval
+                  alpha = 0.1)) + #changing the transparency value
+  geom_line(data = salinity_preds, #adding in an equation line for my linear regression model
+            aes(x = x, #x-axis is the x values
+                y = predicted), #y-axis is the predicted values
+            color = "blue") + #making the line blue
+  theme_classic() + #changing the theme to get rid of background noise (gridlines and color)
+  labs(x = "Salinity (mS/cm)", #labeling the x-axis
+       y = "Pickleweed biomass (g)", #labeling the y-axis
+       title = "Pickleweed Biomass Depending on Salinity Levels") #creating a title
 ```
 
 **c. Check your assumptions and run your test**
@@ -67,7 +69,7 @@ Check assumptions
 
 ```{r}
 par(mfrow = c(2,2))
-plot(salinity_lm)
+plot(salinity_lm) #rendering my diagnostic plots for the salinity_lm data with 2 rows of 2
 ```
 
 Above, I created plots for residuals vs. fitted and scale-location to check the homoscedasticity of the observations, and because the red line is relatively straight it would suggest that the relationship between variables is linear. The Q-Q Residuals plot tells us whether there is normal distribution with the observations, and looking at this plot there is not significant deviation from the line and we can determine that there is normal distribution. Looking at the salinity data, the variables are continuous and the individual pickleweed plants are individual observations, which in conjunction with the above assumptions tells us that we can use Pearson's correlation.
@@ -75,9 +77,9 @@ Above, I created plots for residuals vs. fitted and scale-location to check the 
 Run your test
 
 ```{r}
-cor.test(salinity$salinity_mS_cm,
+cor.test(salinity$salinity_mS_cm, 
          salinity$pickleweed,
-         method = "pearson")
+         method = "pearson") #running a Pearson's correlation test for the salinity data, with salinity as the predictor and pickleweed biomass as the response variables
 ```
 
 The Pearson's correlation test gives us a correlation value of 0.53.
@@ -95,7 +97,7 @@ There is a moderate relationship between salinity and pickleweed biomass, which 
 ```{r}
 cor.test(salinity$salinity_mS_cm,
          salinity$pickleweed,
-         method = "spearman")
+         method = "spearman") #running a Spearman correlation test for the salinity data, with salinity as the predictor and pickleweed biomass as the response variables
 ```
 
 This test would lead me to make the same decision about the null hypothesis, despite the assumptions for both test being different and this technically being the incorrect one. They give a very similar value for the strength of the relationship, which would lead me to the same conclusion in both cases.
@@ -107,40 +109,44 @@ We found a moderate relationship between salinity (mS/cm) and pickleweed biomass
 **a. Updating your visualizations**
 
 ```{r}
-library(here)
+library(here) #building path from the root of my project folder
 
-personal <- read_xlsx(here("data/Data_Project_Water_Idea_HW3.xlsx"))
+personal <- read_xlsx(here("data/Data_Project_Water_Idea_HW3.xlsx")) #reading in my data for my personal project
 ```
 
 ```{r}
-personal_clean <- personal |> 
-  clean_names()
+personal_clean <- personal |> #creating a new object named personal_clean based on the personal data
+  clean_names() #cleaning names to only have lower case and underscores
 ```
 
 ```{r}
-ggplot(data = personal_clean,
-       aes(x = high_daily_temperature_f,
-           y = water_drank_l)) + 
-  geom_jitter(height = 0,
-              width = 0.3,
-              color = "tomato") + 
-  labs(x = "High Daily Temperature (Farenheit)",
-       y = "Water Drank (liters)",
-       title = "Water Drank Based on High Daily Temperature") +
-  theme_minimal()
+ggplot(data = personal_clean, #creating a ggplot based on the personal_clean data
+       aes(x = high_daily_temperature_f, #x-axis represents the high daily temperature in farenheit
+           y = water_drank_l)) + #y-axis represents water drank in liters
+  geom_jitter(height = 0, #making it a jitter plot with zero vertical jitter
+              width = 0.3, #horizontal jitter is a value of 0.3
+              color = "tomato") + #making the points red
+  labs(x = "High Daily Temperature (Farenheit)", #labeling the x-axis
+       y = "Water Drank (liters)", #labeling the y-axis
+       title = "Water Drank Based on High Daily Temperature", #creating a title
+       subtitle = "Most Recent Observation: 03-04-2026") + #creating a subtitle
+  theme_classic() #changing the theme to classic and getting rid of visual clutter
 ```
 
 ```{r}
-ggplot(data = personal_clean,
-       aes(x = exercised,
-           y = water_drank_l,
-           color = exercised)) + 
-  geom_jitter(height = 0,
-              width = 0.3) + 
-  labs(x = "Exercised (Yes/No)",
-       y = "Water Drank (liters)",
-       title = "Water Drank Based on Exercise") + 
-  theme_minimal()
+ggplot(data = personal_clean, #creating a ggplot based on the personal_clean data
+       aes(x = exercised, #x-axis represents exercise categories
+           y = water_drank_l, #y-axis represents water drank in liters
+           color = exercised)) + #color is dependent on which exercise category you're under
+  geom_jitter(height = 0, #making it a jitter plot with zero vertical jitter
+              width = 0.3) + #horizontal jitter value is 0.3
+  scale_color_manual(values = c("red", "blue")) + #changing colors from default
+  labs(x = "Exercised (Yes/No)", #labeling the x-axis
+       y = "Water Drank (liters)", #labeling the y-axis
+       title = "Water Drank Based on Exercise",   #creating a title
+       subtitle = "Most Recent Observation: 03-04-2026") + #creating a subtitle
+  theme_classic() + #changing the theme to classic and getting rid of visual clutter
+  theme(legend.position = "none") #getting rid of the legend
 ```
 
 **b. Captions**
@@ -166,6 +172,11 @@ An affective visualization for my data should be centered around the idea of wat
 **d. Write an artist statement**
 
 I am showing the relationship between the predictor variable of whether I exercised that day or not, and the response variable of how much water I drank in L. I took influence from the paintings of Jill Pelto, along with the "Dear Data" project of Stefanie Posavec and Giorgia Lupi. The form of my work is through a pen and marker drawing. I created this work by beginning with a pencil sketch, then finalizing my pencil line work, and finally filling in with marker and outlining in black.
+
+**e. Prepared materials for class**
+
+[View](https://docs.google.com/presentation/d/1pu7ZRzPmM9qGvmD8HjZWTgp03hyWCaLvJaji3QshfNw/edit?usp=sharing)
+
 
 ## Problem 4. Statistical critique
 
